@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content%}
+<style>
+    .wrapper{
+      margin-top: 0px;
+      text-align: center;
+      line-height: 20px;
+    }
+    
+    .wrapper h1{
+      font-family: 'Brush Script MT';
+      font-size: 45px;
+      #margin-bottom: 25px;
+      letter-spacing: 2px;
+      padding-top : 20px;
+    }
+    
+    .wrapper h1+p{
+      width: 60%;
+      margin: 0 auto 50px;
+      color: #fff;
+    }
+    
+    .wrapper .pricing_wrapper{
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .wrapper .pricing_wrapper .pricing_item{
+      background: #fff;
+      margin: 10px 10px;
+      margin-bottom: 100px;
+      width: 400px;
+      height : auto;
+      padding: 30px 20px;
+      box-shadow: 0 0 2px rgba(0,0,0,0.25);
+      border-radius : 10px;
+    }
+    
+    .wrapper .pricing_wrapper .pricing_item h3{
+      font-size: 26px;
+    }
+    
+    .wrapper .pricing_wrapper .pricing_item p.money{
+      margin: 50px 0 20px;
+      font-size: 52px;
+      color: #4aca85;
+    }
+    
+    .wrapper .pricing_wrapper .pricing_item p.money span{
+      font-size: 12px;
+      color: #bebebe;
+    }
+    
+    .wrapper .pricing_wrapper .pricing_item p{
+      color: #bebebe;
+    }
+    
+    .wrapper .pricing_wrapper .pricing_item a.btn{
+      display: block;
+      text-decoration: none;
+      color: #fff;
+      background: #4d94ff;
+      padding-top: 10px;
+      border-radius: 25px;
+    }
+    </style>
+    
+    <div
+      style="
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+        
+      "
+    >
+      <body>
+        <div
+          class="section"
+          style="width: 100%; min-height: 75vh; background-color: #e6f0ff"
+        >
+        <div class="wrapper">
+            <h1 style ="padding-top : 30px;">Showing {{ store_count }} Results for  " {{ keyword }} "</h1>
+            <p></p>
+            
+           <div class="pricing_wrapper">
+            {% for store in stores %}
+             <div class="pricing_item">
+               <h3 style = " font-family: 'Josefin Sans', sans-serif;">{{ store.name }}</h3>
+               
+                <span style = "float : left ">Store Type : <b> {{ store.storetype }} </b> </span>
+                <br>
+                <span style = "float : left ">Address : <b> {{ store.address }} </b> </span>
+                <br>
+                <br>
+                <br>
+                <iframe src= "https://maps.google.com/maps?q={{store.name}}{{store.address}}&output=embed" width="250" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+               <br>
+               <br>
+               <a href= "https://www.google.com/maps?q={{store.name}}{{store.address}}/"  class="btn" target="_blank" > Show Directions <i class="fas fa-directions"></i>
+            </a>
+        
+             </div>
+             {% endfor %}
+          </div>
+          
+        </div>
+        </div>
+        
+      </body>
+      
+    </div>
+    
+{% endblock%}

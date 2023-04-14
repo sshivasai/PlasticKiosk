@@ -1,0 +1,82 @@
+{% extends 'base.html' %} {% load static %} {% block content%}
+
+<div
+  style="
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  "
+>
+  <body>
+    <div
+      class="section"
+      style="width: 100%; min-height: 90vh; background-color: #fff"
+    >
+      <div
+        class="container"
+        style="width: 80%; display: block; margin: auto; padding-top: 40px;"
+      >
+        <div class="content-section" style="float: left; width: 55%">
+          <div
+            class="title"
+            style="
+              text-align: center;
+              font-size: 19px;
+              #text-transform: uppercase;
+              font-size: 28px;
+            "
+          >
+            <div style="text-align: left; padding-top : 0px;">
+              <h1 style="display: inline-block; color: #004d00">
+                Plastic<span style="color: black">Kiosk 1.0</span>
+              </h1>
+            </div>
+          </div>
+          <div class="content">
+            <h3>&ensp; {{ aboutus.subtext }}</h3>
+            <i
+              ><p style = "margin-top: 10px;
+              font-family: sans-serif;
+              font-size: 18px;
+              line-height: 1.5;"> {{aboutus.aboutus}}
+              </p></i>
+            &nbsp
+          </div>
+        
+          <div class="social" style="margin: 10px 0px; padding-left:0px">
+            <a href={{ aboutus.fb_link }}
+              ><i
+                class="fab fa-facebook-f"
+                style="color: #a52a2a; font-size: 30px; padding: 0px 10px"
+              ></i
+            ></a>
+            <a href= {{ aboutus.twitter_link }}
+              ><i
+                class="fab fa-twitter"
+                style="color: #a52a2a; font-size: 30px; padding: 0px 10px"
+              ></i
+            ></a>
+            <a href={{ aboutus.fb_link }}
+              ><i
+                class="fab fa-instagram"
+                style="color: #a52a2a; font-size: 30px; padding: 0px 10px"
+              ></i
+            ></a>
+          </div>
+        </div>
+        <div class="image-section" style="float: right; width: 40%; padding-top:60px">
+            &nbsp
+          <img src="{% static "images/services/industry.jpg"%}" style = "width:
+          100%; height: auto; " />
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+    
+  </body>
+  
+</div>
+
+{% endblock %}

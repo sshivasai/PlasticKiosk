@@ -1,0 +1,113 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<style>
+.wrapper{
+  margin-top: 0px;
+  text-align: center;
+  line-height: 20px;
+}
+
+.wrapper h1{
+  font-family: 'Garamond';
+  font-size: 45px;
+  margin-bottom: 25px;
+  letter-spacing: 4px;
+  padding-top : 20px;
+}
+
+.wrapper h1+p{
+  width: 60%;
+  margin: 0 auto 50px;
+  color: #fff;
+}
+
+.wrapper .pricing_wrapper{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.wrapper .pricing_wrapper .pricing_item{
+  background: #fff;
+  margin: 10px 10px;
+  margin-bottom: 100px;
+  width: 300px;
+  padding: 30px 20px;
+  box-shadow: 0 0 2px rgba(0,0,0,0.25);
+  border-radius : 10px;
+}
+
+.wrapper .pricing_wrapper .pricing_item h3{
+  font-size: 26px;
+}
+
+.wrapper .pricing_wrapper .pricing_item p.money{
+  margin: 50px 0 20px;
+  font-size: 52px;
+  color: #4aca85;
+}
+
+.wrapper .pricing_wrapper .pricing_item p.money span{
+  font-size: 12px;
+  color: #bebebe;
+}
+
+.wrapper .pricing_wrapper .pricing_item p{
+  color: #bebebe;
+}
+
+.wrapper .pricing_wrapper .pricing_item a.btn{
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  background: #4aca85;
+  padding-top: 10px;
+  border-radius: 25px;
+}
+</style>
+
+<div
+  style="
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    
+  "
+>
+  <body>
+    <div
+      class="section"
+      style="width: 100%; min-height: 50vh; background-color: #4aca85"
+    >
+    <div class="wrapper">
+        <h1>Pricing for {{ category.name }} Customers</h1>
+        <p>{{ category.description }}</p>
+        
+       <div class="pricing_wrapper">
+        {% for price in prices %}
+         <div class="pricing_item">
+           <h3 style = " font-family: 'Josefin Sans', sans-serif;">{{ price.name }}</h3>
+           <p class="money">
+             ${{price.price_per_pound}}<br><span>per pound</span>
+           </p>
+           <p>{{ price.description }}</p>
+           <a href="{% url 'home' %}" class="btn"
+          >{% if category.name == "HouseHold" %} {{ " Recycle your Plastic" }}
+           {% else %} 
+           {{" Buy from us "}} 
+           {% endif %}
+        </a>
+         </div>
+         {% endfor %}
+      </div>
+      
+    </div>
+    </div>
+    
+  </body>
+  
+</div>
+
+
+  
+
+{% endblock %}

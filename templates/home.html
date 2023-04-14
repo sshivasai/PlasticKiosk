@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content%}
+
+<!-- ========================= SECTION MAIN ========================= -->
+<section class="section-intro padding-y-sm">
+<div class="container">
+
+<div class="intro-banner-wrap">
+	<img src="{% static "images/banners/cover.jpg" %}" class="img-fluid rounded">
+</div>
+
+</div> <!-- container //  -->
+</section>
+<!-- ========================= SECTION MAIN END// ========================= -->
+<!-- ========================= SECTION  Buy/Sell// ========================= -->
+
+
+<section class="section-name padding-y-sm">
+	<div class="container">
+	
+	<header class="section-heading">
+		<h3 class="section-title"  style ="font-size:30px;text-align:center;">Do you want to recycle ?? </h3>
+	</header><!-- sect-heading -->
+	<body>
+		<center>
+		<button id="yes" name = "yes" style = "background-color: #4CAF50; 
+		border: none;
+		color: white;
+		padding: 15px 32px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		width : 300px;
+		font-size: 16px; border-radius : 10px;" >Yes</button>
+		<a href = "{% url 'home' %}">
+		<button  id="no" name="no" style = "background-color: #f44336; 
+		border: none;
+		color: white;
+		padding: 15px 32px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		width : 300px;
+		font-size: 16px;
+		border-radius : 10px;">No, I will try next time</button>
+		</a>
+		<div id="toshow" style="display:none"> <!-- If user clicks on yes-->
+
+			<br>
+		<h3> Select Category</h3>
+<div class="row" >
+	{% for category in categories %}
+	
+	<div class=" col-md-6 " >
+		<div class="card card-product-grid">
+			&nbsp
+			<a  onclick="myFunction()" href={{ category.get_url_category}} class="img-wrap"  > <img src= {{ category.image.url }}> </a>
+			<figcaption class="info-wrap">
+				<a onclick="myFunction()" href={{ category.get_url_category}} class="title"><h6> {{category.name}}<h6>
+					<ul>
+						<li style="color:green;" >{{category.description}}</li>
+						&nbsp
+					  </ul>
+				</a>
+			</figcaption>
+		</div>
+	</div> <!-- col.// -->
+
+<script>
+	function myFunction() {
+	  alert("Please clear all the cart items before proceeding!");
+	}
+	</script>
+	{% endfor %}
+	<button  id="hide" name="hide" style = "background-color: #f44336; 
+		border: none;
+		color: white;
+		padding: 15px 32px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		width : 100px;
+		font-size: 16px;
+		border-radius : 10px;"><center>Close</center></button>
+		</a>
+	
+</div><!-- row // -->
+		
+		</div>
+		<center>
+		<script>
+		  const targetDiv = document.getElementById("toshow");
+		  const btn = document.getElementById("yes");
+		  btn.onclick = function () {
+			if (targetDiv.style.display !== "none") {
+			  targetDiv.style.display = "none";
+			} else {
+			  targetDiv.style.display = "block";
+			}
+		  };
+		  const btn1 = document.getElementById("hide");
+		  btn1.onclick= function () {
+			if (targetDiv.style.display !== "none") {
+			  targetDiv.style.display = "none";
+			} else {
+			  targetDiv.style.display = "block";
+			}
+		  };
+
+		</script>
+	  </body>
+	
+	
+	</section>
+
+<!-- ========================= SECTION end ========================= -->
+
+
+<!-- ========================= SECTION Services ========================= -->
+<section class="section-name padding-y-sm">
+<div class="container">
+
+<header class="section-heading">
+	<a href="{% url 'articles' %}" class="btn btn-outline-primary float-right">Know More about our Stories</a>
+	<h3 class="section-title">Popular Services</h3>
+</header><!-- sect-heading -->
+
+	   
+<div class="row" >
+	
+	<div class=" col-md-6 " >
+		<div class="card card-product-grid">
+			&nbsp
+			<a href="{% url 'about' %}" class="img-wrap" > <img src="{% static "images/services/house.jpg"%}"> </a>
+			<figcaption class="info-wrap">
+				<a href="{% url 'about' %}" class="title"><h6>For House Hold Customers<h6>
+					<ul>
+						<li style="color:green;" >Drop your used Plastic Material and Draw the money</li>
+						&nbsp
+						
+					  </ul>
+				</a>
+			</figcaption>
+		</div>
+	</div> <!-- col.// -->
+	<div class=" col-md-6 ">
+		<div class="card card-product-grid">
+			&nbsp
+			<a href="{% url 'about' %}" class="img-wrap"> <img src="{% static "images/services/industry.jpg"%}"> </a>
+			<figcaption class="info-wrap">
+				<a href="{% url 'about' %}" class="title" ><h6>For Small Scale Industry Customers<h6>
+					<ul>
+						<li style="color:green;" >Place your bulk order for our plastic and collect it from your nearest store</li>
+					  </ul>
+				</a>
+			</figcaption>
+		</div>
+	</div> <!-- col.// -->
+	
+</div> <!-- row.// -->
+
+</div><!-- container // -->
+</section>
+<!-- ========================= SECTION  END// ========================= -->
+</body>
+</html>
+{% endblock%}
+

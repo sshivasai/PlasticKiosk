@@ -1,0 +1,74 @@
+{% extends 'base.html' %} {% load static %}
+{% block content%}
+<br>
+<h2><center> Select Type of Product</center></h2>
+
+{% if cat_id == 2 %}
+
+<br>
+
+<div class="row" style="float:center" >
+	
+	
+	{% for product in products %}
+	
+	<div class=" col-md-4 "  >
+		<div class="card card-product-grid"  style = "background-color : #f2f2f2; float :center">
+			&nbsp
+			<a href={{ product.get_url_name}} class="img-wrap" > <img src= {{ product.image.url }}> </a>
+			<figcaption class="info-wrap">
+				<a href={{ product.get_url_name}} class="title"><h6> {{product.product_name}}<h6>
+					<ul>
+                        &nbsp
+                        <li style="color:green;" > Price: <b>{{product.price.price_per_pound}}$ per Pound </b></li>
+						&nbsp
+						
+						
+						<li style="color:green;" >Current Stock : <b>{{product.current_stock}} Pounds</b></li>
+						
+						
+						&nbsp
+                        <li style="color:green;" >Description : <b>{{product.description}} </b></li>
+						&nbsp
+					  </ul>
+				</a>
+			</figcaption>
+		</div>
+	</div> <!-- col.// -->
+
+{% endfor %}
+
+</div>
+{% else %}
+
+<div class="row" style="float:center" >
+	
+	{% for product in products %}
+	
+	<div class=" col-md-4 "  >
+		<div class="card card-product-grid"  style = "background-color : #f2f2f2; float :center">
+			&nbsp
+			<a href={{ product.get_url_name}} class="img-wrap" > <img src= {{ product.image.url }}> </a>
+			<figcaption class="info-wrap">
+				<a href={{ product.get_url_name}} class="title"><h6> {{product.product_name}}<h6>
+					<ul>
+                        &nbsp
+                        <li style="color:green;" > Price: <b>{{product.price.price_per_pound}}$ per Pound </b></li>
+						&nbsp
+						&nbsp
+                        <li style="color:green;" >Description : <b>{{product.description}} </b></li>
+						&nbsp
+					  </ul>
+				</a>
+			</figcaption>
+		</div>
+	</div> <!-- col.// -->
+
+{% endfor %}
+
+</div>
+
+{% endif %}
+
+
+{% endblock%}

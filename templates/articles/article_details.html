@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+&nbsp
+
+<div class="row">
+    &nbsp
+    &nbsp
+    &nbsp
+    &nbsp
+    &nbsp
+    
+    {% for blog in single_blog %}
+    <div class="col-md-11" >
+        <div class="card card-product-grid">
+            &nbsp
+            <center>
+            <h1 class="title">{{ blog.blog_title }}</h1>
+            </center>
+            <small style = "text-align: right; padding-right:10px"> Written by <b>{% if blog.author == '' %}
+                {{ "Unknown" }}
+            {% else%}
+                {{ blog.author }}
+            {% endif %} </b> </small>
+            <small style = "text-align: right; padding-right:10px"> Category : {{ blog.category }}</small>
+            
+            <small style = "text-align: right; padding-right:10px;">Posted on {{ blog.created_date }}</small>
+            <small style = "text-align: right; padding-right:10px"> Last Updated on {{ blog.last_modified_date }}</small>
+            <center style = "text-align: left; padding-right:30px;padding-left:30px;padding-top:30px;padding-bottom:30px;" >
+            <a class="img-wrap"> <img src="{{ blog.image_1.url }}" onerror="this.style.display = 'none'; this.remove();"> </a>
+            <i style = "font-family: Times New Roman; font-size: 20px;" >
+            &nbsp
+	        <p>&emsp; &emsp;{{ blog.paragraph_1 }}</p>
+            &nbsp
+	        <p>&emsp; &emsp;{{ blog.paragraph_2 }}</p>
+            &nbsp
+	        <p>&emsp; &emsp;{{ blog.paragraph_3 }}</p>
+            &nbsp
+	        <p>&emsp; &emsp;{{ blog.paragraph_4 }}</p>
+            </i>
+            
+        </div>
+    </div> <!-- col.// -->
+    
+    {% endfor %}
+    &nbsp
+</div> <!-- row.// -->
+{% endblock %}
