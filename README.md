@@ -3,7 +3,7 @@
 This is a model project which can be used to save plastic. This system can be implemented at any of the kiok locations. A user can register, login and recycle their plastic items through the vending machine and get rewareded for the same.
 
 
-Same scale industry users can use this website to order bulk plastic for their industrial needs and pay money using paypal or cash.
+Small scale industry users can use this website to order bulk plastic for their industrial needs and pay money using paypal or cash.
 
 ![image](https://user-images.githubusercontent.com/64718250/231944047-e03ad582-8ae0-47b9-abc8-207ceddd2586.png)
 ![image](https://user-images.githubusercontent.com/64718250/231944058-8b2ea709-718d-46a6-a6a7-08e15d3c6155.png)
